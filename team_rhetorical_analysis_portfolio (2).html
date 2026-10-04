@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhetorical Analysis Web Portfolio | Studying with Noise vs Silence</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Font: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        },
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                        },
+                        accent: {
+                            teal: '#0d9488',
+                            emerald: '#059669',
+                            amber: '#d97706',
+                            rose: '#e11d48'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+        }
+        .card-shadow-hover:hover {
+            box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.1), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- STICKY NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-headphones text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600 block">Team Rhetorical Analysis</span>
+                        <h1 class="text-sm sm:text-base font-bold text-slate-900 leading-tight">Study Noise & Focus Web Portfolio</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-semibold text-slate-600">
+                    <a href="#overview" class="px-3 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition">Overview</a>
+                    <a href="#matrix" class="px-3 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition">Source Examples</a>
+                    <a href="#analysis" class="px-3 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition">Rhetorical Breakdown</a>
+                    <a href="#simulator" class="px-3 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition">Focus Simulator</a>
+                    <a href="#references" class="px-3 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition">References</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-1 text-sm font-medium text-slate-700">
+            <a href="#overview" class="block px-3 py-2 rounded-md hover:bg-slate-100">Overview & Boundary</a>
+            <a href="#matrix" class="block px-3 py-2 rounded-md hover:bg-slate-100">Source Examples</a>
+            <a href="#analysis" class="block px-3 py-2 rounded-md hover:bg-slate-100">Rhetorical Breakdown</a>
+            <a href="#simulator" class="block px-3 py-2 rounded-md hover:bg-slate-100">Focus Simulator</a>
+            <a href="#references" class="block px-3 py-2 rounded-md hover:bg-slate-100">APA 7 References</a>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section id="overview" class="relative py-12 lg:py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-brand-50 border border-brand-200 px-3.5 py-1.5 rounded-full text-brand-700 text-xs font-semibold mb-6">
+                <i class="fa-solid fa-brain text-brand-600"></i>
+                <span>Topic Focus: Background Sound vs Quiet Study Environments</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight max-w-4xl">
+                Is it better to study with <span class="text-brand-600">background noise</span> or in a <span class="text-accent-teal">quiet room</span>?
+            </h1>
+
+            <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
+                This project examines how scientific researchers and popular authors explain the impact of sound on studying. We look at how expert studies are written for researchers versus how those same findings are simplified for students, parents, and everyday readers.
+            </p>
+
+            <!-- Domain Boundary Card -->
+            <div class="mt-8 bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow">
+                <div class="flex items-center space-x-3 mb-3">
+                    <div class="p-2 rounded-lg bg-brand-500/10 text-brand-600 font-bold text-sm">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h2 class="text-sm sm:text-base font-bold text-slate-900 uppercase tracking-wider">Portfolio Focus & Boundaries</h2>
+                </div>
+                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+                    Our team's focus centers on <strong>how background sounds affect student learning and focus</strong>. We look at how different sound environments—such as complete silence, white noise, instrumental lo-fi music, and songs with lyrics—impact reading memory, math problem solving, and mental fatigue. We compare four separate sources to see how writers tailor their message depending on whether they are talking to scientists or general readers.
+                </p>
+
+                <!-- 4 Domain Indicators -->
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white border border-slate-200 p-3.5 rounded-xl">
+                        <div class="text-xs font-bold text-brand-600 mb-1"><i class="fa-solid fa-memory mr-1.5"></i>Short-Term Memory</div>
+                        <p class="text-xs text-slate-500">How much mental space you have to process what you read.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-3.5 rounded-xl">
+                        <div class="text-xs font-bold text-accent-teal mb-1"><i class="fa-solid fa-volume-xmark mr-1.5"></i>Audio Distraction</div>
+                        <p class="text-xs text-slate-500">Why background speech and lyrics interrupt your reading flow.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-3.5 rounded-xl">
+                        <div class="text-xs font-bold text-accent-amber mb-1"><i class="fa-solid fa-bolt mr-1.5"></i>Alertness Level</div>
+                        <p class="text-xs text-slate-500">How soft sound keeps you energized without causing overload.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-3.5 rounded-xl">
+                        <div class="text-xs font-bold text-accent-emerald mb-1"><i class="fa-solid fa-sliders mr-1.5"></i>Noise Masking</div>
+                        <p class="text-xs text-slate-500">Using steady background sound to cover up sudden loud noises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+        <!-- SECTION 2: ARTIFACT INVENTORY MATRIX -->
+        <section id="matrix" class="scroll-mt-20">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 block">Analyzed Sources</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Artifact Inventory Matrix</h2>
+                </div>
+                <div class="text-xs font-medium text-slate-600 bg-white border border-slate-200 px-3.5 py-2 rounded-full self-start sm:self-auto shadow-sm">
+                    <i class="fa-solid fa-check-circle text-accent-emerald mr-1.5"></i> 4 Independent Sources
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-600 mb-6">
+                Click any card below to open an interactive viewer showing details, source previews, and direct links to the original published work.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Artifact 1 -->
+                <div onclick="openArtifactModal(1)" class="group bg-white border border-slate-200 rounded-2xl p-6 card-shadow card-shadow-hover transition cursor-pointer relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-sky-100 border border-sky-200 text-sky-800 uppercase tracking-wide">
+                                Artifact #1 • Written Study
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded">
+                                Expert <i class="fa-solid fa-arrow-right mx-1 text-slate-400"></i> Expert
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                            "The Irrelevant Sound Effect on Serial Recall Is Independent of Age and Inhibitory Control"
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-2 mb-3 font-mono">
+                            <i class="fa-solid fa-book-open text-brand-600 mr-1"></i> Auditory Perception & Cognition (Meinhardt-Injac et al., 2022)
+                        </p>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            A scientific research study that tests how background sounds interfere with short-term memory accuracy in laboratory testing conditions.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600 group-hover:translate-x-1 transition-transform">
+                        <span>Inspect Artifact Details</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Artifact 2 -->
+                <div onclick="openArtifactModal(2)" class="group bg-white border border-slate-200 rounded-2xl p-6 card-shadow card-shadow-hover transition cursor-pointer relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-100 border border-emerald-200 text-emerald-800 uppercase tracking-wide">
+                                Artifact #2 • Written Article
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded">
+                                Expert <i class="fa-solid fa-arrow-right mx-1 text-slate-400"></i> General Audience
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                            "Lo-Fi Music for Focus: A Game-Changer or Just a Trend?"
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-2 mb-3 font-mono">
+                            <i class="fa-solid fa-newspaper text-accent-emerald mr-1"></i> Psychology Today (Dr. H. Ramzi, 2025)
+                        </p>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            A clear magazine article explaining why soft instrumental music helps students stay focused without interrupting reading comprehension.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600 group-hover:translate-x-1 transition-transform">
+                        <span>Inspect Artifact Details</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Artifact 3 -->
+                <div onclick="openArtifactModal(3)" class="group bg-white border border-slate-200 rounded-2xl p-6 card-shadow card-shadow-hover transition cursor-pointer relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-purple-100 border border-purple-200 text-purple-800 uppercase tracking-wide">
+                                Artifact #3 • Data Chart
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded">
+                                Data Chart <i class="fa-solid fa-arrow-right mx-1 text-slate-400"></i> Expert
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                            Meta-Analytic Plot on Music Complexity vs Task Accuracy
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-2 mb-3 font-mono">
+                            <i class="fa-solid fa-chart-area text-purple-600 mr-1"></i> Music & Science (Meta-Analysis Data, 2022)
+                        </p>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            A technical data chart combining results from 42 studies to show how task performance drops as background music becomes louder or more complex.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600 group-hover:translate-x-1 transition-transform">
+                        <span>Inspect Artifact Details</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Artifact 4 -->
+                <div onclick="openArtifactModal(4)" class="group bg-white border border-slate-200 rounded-2xl p-6 card-shadow card-shadow-hover transition cursor-pointer relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-100 border border-amber-200 text-amber-800 uppercase tracking-wide">
+                                Artifact #4 • Visual Guide
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded">
+                                Visual Guide <i class="fa-solid fa-arrow-right mx-1 text-slate-400"></i> General Audience
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                            "Can Music Help You Study and Focus? Decision Guide Matrix"
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-2 mb-3 font-mono">
+                            <i class="fa-solid fa-table-cells text-accent-amber mr-1"></i> National University Educational Portal (2025)
+                        </p>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            An easy-to-read chart matching different study tasks (like reading vs math) with the best sound environments for student success.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600 group-hover:translate-x-1 transition-transform">
+                        <span>Inspect Artifact Details</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: RHETORICAL ANALYSIS CORE -->
+        <section id="analysis" class="scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 block">Analysis & Insights</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Rhetorical Breakdown Dashboard</h2>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="bg-white p-1.5 rounded-2xl border border-slate-200 flex flex-wrap gap-1 mb-6 card-shadow">
+                <button onclick="switchTab('authors')" id="tab-authors" class="analysis-tab flex-1 min-w-[140px] py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-white bg-brand-600 shadow-sm transition">
+                    <i class="fa-solid fa-users mr-2"></i>Authors & Audiences
+                </button>
+                <button onclick="switchTab('genres')" id="tab-genres" class="analysis-tab flex-1 min-w-[140px] py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition">
+                    <i class="fa-solid fa-layer-group mr-2"></i>Formats & Contexts
+                </button>
+                <button onclick="switchTab('ethos')" id="tab-ethos" class="analysis-tab flex-1 min-w-[140px] py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition">
+                    <i class="fa-solid fa-shield-halved mr-2"></i>Trust & Purpose
+                </button>
+                <button onclick="switchTab('strategies')" id="tab-strategies" class="analysis-tab flex-1 min-w-[140px] py-2.5 px-4 rounded-xl font-semibold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Writing Strategies
+                </button>
+            </div>
+
+            <!-- TAB 1 CONTENT: AUTHORS & AUDIENCES -->
+            <div id="content-authors" class="tab-content bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900">1. Authors & Target Audiences</h3>
+                    <p class="text-xs text-slate-500 mt-1">Comparing how researchers write for scientists versus how popular science writers talk to everyday readers.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-sky-100 border border-sky-200 text-sky-800 uppercase">
+                            Expert Writing to Expert Audience
+                        </span>
+                        <h4 class="text-base font-bold text-slate-900">Academic Researchers</h4>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <strong>Authors:</strong> Meinhardt-Injac et al. (2022) write as formal scientists. Their tone is objective, precise, and focused entirely on data from controlled lab experiments.
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <strong>Audience:</strong> Other cognitive scientists and university professors. These readers expect statistical proof, detailed testing methods, and exact scientific definitions.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-100 border border-emerald-200 text-emerald-800 uppercase">
+                            Expert Writing to General Audience
+                        </span>
+                        <h4 class="text-base font-bold text-slate-900">Popular Science Communicators</h4>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <strong>Authors:</strong> Dr. H. Ramzi (2025) and National University educators write as friendly guides. They connect scientific facts with practical daily study advice.
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <strong>Audience:</strong> Students, parents, and teachers looking for quick, useful tips on how to focus better while studying.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2 CONTENT: GENRES & CONTEXTS -->
+            <div id="content-genres" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900">2. Formats & Setting Contexts</h3>
+                    <p class="text-xs text-slate-500 mt-1">Understanding how different publishing formats change how information is delivered.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <div class="text-xs font-bold text-brand-600 uppercase tracking-wider">Formal Academic Journals</div>
+                        <h4 class="text-base font-bold text-slate-900">Peer-Reviewed Research Articles</h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start"><i class="fa-solid fa-angle-right text-brand-600 mt-1 mr-2"></i><span><strong>Format:</strong> Follows strict scientific sections: Introduction, Methods, Results, and Conclusion.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-angle-right text-brand-600 mt-1 mr-2"></i><span><strong>Setting:</strong> Published in university library databases for research and academic debate.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                        <div class="text-xs font-bold text-accent-amber uppercase tracking-wider">Online Web Publications</div>
+                        <h4 class="text-base font-bold text-slate-900">Web Articles & Visual Guides</h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start"><i class="fa-solid fa-angle-right text-accent-amber mt-1 mr-2"></i><span><strong>Format:</strong> Uses clear headings, bullet points, callout boxes, and colorful summary charts.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-angle-right text-accent-amber mt-1 mr-2"></i><span><strong>Setting:</strong> Available on open websites for students looking for quick answers online.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3 CONTENT: ETHOS, TRUST & PURPOSE -->
+            <div id="content-ethos" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900">3. Building Trust & Stating Purpose</h3>
+                    <p class="text-xs text-slate-500 mt-1">How writers convince readers that their information is accurate and helpful.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col md:flex-row gap-4 items-start">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-xl text-xl font-bold shrink-0">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Scientific Credibility: Careful Testing & Method Transparency</h4>
+                            <p class="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">
+                                In expert studies, writers build trust by carefully describing every detail of their experiments—including how many participants were tested, how volume levels were controlled, and what statistical formulas were used.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col md:flex-row gap-4 items-start">
+                        <div class="p-3 bg-emerald-50 text-accent-emerald rounded-xl text-xl font-bold shrink-0">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">General Audience Trust: Clear Guidance & Relatable Examples</h4>
+                            <p class="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">
+                                In popular articles, trust is built by referencing expert credentials while explaining things in a friendly, practical tone that directly addresses students' real-world study challenges.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4 CONTENT: READER-CENTERED STRATEGIES -->
+            <div id="content-strategies" class="tab-content hidden bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900">4. Three Reader-Centered Writing Strategies</h3>
+                    <p class="text-xs text-slate-500 mt-1">Key methods used to make scientific research easy to read and apply.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-7 h-7 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center font-bold text-xs mb-3">1</div>
+                            <h4 class="text-sm font-bold text-slate-900 mb-2">Translating Complex Terms</h4>
+                            <p class="text-xs text-slate-700 leading-relaxed">
+                                Authors replace difficult terms like <em>"Phonological Loop Disruption"</em> with plain phrases like <em>"Lyrical Distraction"</em> or <em>"Reading Interruption"</em> so anyone can understand.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-7 h-7 rounded-lg bg-teal-100 text-accent-teal flex items-center justify-center font-bold text-xs mb-3">2</div>
+                            <h4 class="text-sm font-bold text-slate-900 mb-2">Visual Layouts & Quick Charts</h4>
+                            <p class="text-xs text-slate-700 leading-relaxed">
+                                Instead of long walls of text, writers use simple comparison charts, bulleted summaries, and color coding so readers can find key tips in seconds.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-7 h-7 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs mb-3">3</div>
+                            <h4 class="text-sm font-bold text-slate-900 mb-2">Focusing on Practical Value</h4>
+                            <p class="text-xs text-slate-700 leading-relaxed">
+                                Writers answer the reader's main question—<em>"How does this help me study?"</em>—by giving clear advice on when to turn off music and when soft background sound helps.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 4: INTERACTIVE SIMULATOR -->
+        <section id="simulator" class="scroll-mt-20">
+            <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-10 text-white card-shadow relative overflow-hidden">
+                <div class="max-w-3xl mb-8">
+                    <span class="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 border border-teal-700 px-3 py-1 rounded-full">
+                        Interactive Tool
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white mt-3">Interactive Study Environment Simulator</h2>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                        Select a sound setting and a study task below to see how research predicts your focus, distraction risk, and memory retention.
+                    </p>
+                </div>
+
+                <!-- CONTROLS GRID -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950/60 p-6 rounded-2xl border border-slate-700/80 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-volume-high text-brand-400 mr-1.5"></i> Select Sound Environment
+                        </label>
+                        <select id="sim-audio" onchange="updateSimulator()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-white focus:outline-none focus:border-brand-500">
+                            <option value="quiet">Quiet Room (Complete Silence)</option>
+                            <option value="white">Steady White / Pink Noise (Fan or Ambient Hum)</option>
+                            <option value="lofi">Lo-Fi / Instrumental Beats (No Lyrics)</option>
+                            <option value="lyrical">Songs with Lyrics / Background Conversation</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-list-check text-teal-400 mr-1.5"></i> Select Study Task
+                        </label>
+                        <select id="sim-task" onchange="updateSimulator()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-white focus:outline-none focus:border-brand-500">
+                            <option value="verbal">Reading Comprehension & Essay Writing</option>
+                            <option value="math">Math Problems & Logical Reasoning</option>
+                            <option value="creative">Brainstorming & Visual Design</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- OUTPUT DISPLAY -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Gauge Bars -->
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-2">
+                            Predicted Focus & Distraction Levels
+                        </h3>
+
+                        <!-- Metric 1 -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-300">Reading Distraction Risk:</span>
+                                <span id="sim-interference-val" class="font-mono font-bold text-teal-400">10%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div id="sim-interference-bar" class="bg-teal-400 h-2 rounded-full transition-all duration-500" style="width: 10%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 2 -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-300">Memory Strain:</span>
+                                <span id="sim-memory-val" class="font-mono font-bold text-sky-400">5%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div id="sim-memory-bar" class="bg-sky-400 h-2 rounded-full transition-all duration-500" style="width: 5%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 3 -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-300">Alertness & Energy:</span>
+                                <span id="sim-arousal-val" class="font-mono font-bold text-amber-400">Calm</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                                <div id="sim-arousal-bar" class="bg-amber-400 h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Synthesis Card -->
+                    <div class="lg:col-span-2 bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-wider block mb-1">Study Advice Summary</span>
+                            <h4 id="sim-headline" class="text-base sm:text-lg font-bold text-white mb-2">Best Environment for Reading & Writing</h4>
+                            <p id="sim-description" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Complete silence gives your brain maximum space to process words and hold information in memory without outside interruptions.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between text-xs text-slate-400 gap-2">
+                            <span><strong class="text-slate-200">Recommended For:</strong> <span id="sim-persona" class="text-teal-300">Intense Reading & Memory Recall</span></span>
+                            <span><i class="fa-solid fa-graduation-cap text-brand-400 mr-1"></i> Based on Artifacts #1 & #3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: REFERENCES -->
+        <section id="references" class="scroll-mt-20">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 card-shadow">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-600 block">Citations</span>
+                        <h2 class="text-2xl font-bold text-slate-900">APA 7th Edition References</h2>
+                    </div>
+                    <button onclick="copyReferences()" class="self-start sm:self-auto px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition flex items-center space-x-2 border border-slate-200">
+                        <i class="fa-solid fa-copy"></i>
+                        <span id="copy-btn-text">Copy All References</span>
+                    </button>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm text-slate-700 pl-6 font-mono">
+                    <p class="indent-[-1.5rem] leading-relaxed">
+                        Meinhardt-Injac, B., Schlitt, S., & Wetzel, N. (2022). The irrelevant sound effect on serial recall is independent of age and inhibitory control. <em>Auditory Perception & Cognition</em>, 5(1-2), 45–62. <a href="https://doi.org/10.1080/25742442.2022.2064692" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">https://doi.org/10.1080/25742442.2022.2064692</a>
+                    </p>
+                    <p class="indent-[-1.5rem] leading-relaxed">
+                        National University. (2025). <em>Can music help you study and focus? Decision guide matrix</em>. National University Educational Blogs. <a href="https://www.nu.edu/blog/can-music-help-you-study-and-focus/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">https://www.nu.edu/blog/can-music-help-you-study-and-focus/</a>
+                    </p>
+                    <p class="indent-[-1.5rem] leading-relaxed">
+                        Ramzi, H. (2025, February 10). Lo-fi music for focus: A game-changer or just a trend? <em>Psychology Today</em>. <a href="https://www.psychologytoday.com/us/blog/empowered-with-adhd/202502/lo-fi-music-for-focus-just-a-trend-or-a-game-changer" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">https://www.psychologytoday.com/us/blog/empowered-with-adhd/202502/lo-fi-music-for-focus-just-a-trend-or-a-game-changer</a>
+                    </p>
+                    <p class="indent-[-1.5rem] leading-relaxed">
+                        Special Interest Group in Music & Cognition. (2022). Background music and cognitive task performance: A systematic meta-analysis interaction plot. <em>Music & Science</em>, 5, 1–18. <a href="https://doi.org/10.1177/20592043221134392" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">https://doi.org/10.1177/20592043221134392</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 text-slate-500 py-8 text-center text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>Team Rhetorical Analysis Portfolio • Technical & Scientific Communication</p>
+            <p class="mt-1 text-slate-400">Noise vs Quiet in Student Study Environments</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ARTIFACT INSPECTOR MODAL -->
+    <div id="artifact-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-white border border-slate-200 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-slate-900">
+            <!-- Modal Header -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur border-b border-slate-200 p-6 flex justify-between items-center z-10">
+                <div>
+                    <span id="modal-badge" class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wide bg-brand-50 text-brand-700 border border-brand-200">
+                        Artifact Detail
+                    </span>
+                    <h3 id="modal-title" class="text-base sm:text-xl font-bold text-slate-900 mt-1">Artifact Title</h3>
+                </div>
+                <button onclick="closeArtifactModal()" class="p-2 rounded-xl hover:bg-slate-100 text-slate-500 hover:text-slate-900 transition focus:outline-none">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 space-y-6 text-xs sm:text-sm">
+                <!-- Source Metadata Box -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 font-mono">
+                    <div><strong class="text-slate-500">Source Origin:</strong> <span id="modal-source" class="text-slate-800">--</span></div>
+                    <div><strong class="text-slate-500">Target Audience:</strong> <span id="modal-audience" class="text-slate-800">--</span></div>
+                    <div><strong class="text-slate-500">Format Category:</strong> <span id="modal-genre" class="text-slate-800">--</span></div>
+                    <div class="pt-1">
+                        <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-600 hover:text-brand-700 font-sans font-bold text-xs underline">
+                            <i class="fa-solid fa-arrow-up-right-from-square mr-1.5"></i> Open Direct Source Link
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Simulated Excerpt / Preview Box -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Source Preview & Sample Content</h4>
+                    <div id="modal-preview" class="p-5 rounded-2xl bg-slate-900 text-slate-100 font-mono text-xs leading-relaxed border border-slate-800">
+                        <!-- Dynamic JS Injection -->
+                    </div>
+                </div>
+
+                <!-- Rhetorical Breakdown -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Rhetorical Breakdown</h4>
+                    <div id="modal-analysis" class="text-slate-700 leading-relaxed space-y-3 font-sans">
+                        <!-- Dynamic JS Injection -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-50 border-t border-slate-200 px-6 py-4 flex justify-end">
+                <button onclick="closeArtifactModal()" class="px-5 py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 transition">
+                    Close Inspector
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Artifact Database
+        const artifactsData = {
+            1: {
+                badge: "Artifact 1 • Expert Written Study",
+                badgeClass: "bg-sky-100 border-sky-200 text-sky-800",
+                title: "The Irrelevant Sound Effect on Serial Recall Is Independent of Age and Inhibitory Control",
+                source: "Auditory Perception & Cognition (Meinhardt-Injac et al., 2022)",
+                audience: "Cognitive Psychology Researchers & Academic Faculty",
+                genre: "Peer-Reviewed Scientific Journal Article",
+                url: "https://doi.org/10.1080/25742442.2022.2064692",
+                preview: `"Trial 3 tested memory recall when participants listened to changing speech sounds versus steady background noise. Statistical analysis revealed that memory accuracy dropped by 22% when background speech was present, regardless of the person's age or ability to ignore distractions."`,
+                analysis: `<p><strong>Trust & Credibility:</strong> Established through precise experimental controls, statistical proof, and objective scientific tone.</p><p><strong>Writing Style:</strong> Uses specialized academic terms aimed at peer researchers who expect formal research design.</p>`
+            },
+            2: {
+                badge: "Artifact 2 • Popular Written Article",
+                badgeClass: "bg-emerald-100 border-emerald-200 text-emerald-800",
+                title: "Lo-Fi Music for Focus: A Game-Changer or Just a Trend?",
+                source: "Psychology Today (Dr. H. Ramzi, 2025)",
+                audience: "Students, Educators, and General Readers",
+                genre: "Popular Science Magazine Article",
+                url: "https://www.psychologytoday.com/us/blog/empowered-with-adhd/202502/lo-fi-music-for-focus-just-a-trend-or-a-game-changer",
+                preview: `"Ever wonder why lo-fi study beats are so popular? Unlike pop songs with lyrics that interrupt your reading, lo-fi beats provide a steady, soothing rhythm. Soft background sound keeps your brain gently energized so you don't get bored or distracted."`,
+                analysis: `<p><strong>Trust & Credibility:</strong> Built through professional clinical experience paired with an encouraging, relatable voice.</p><p><strong>Writing Style:</strong> Replaces heavy neuroscience jargon with clear metaphors like "mental bandwidth" and real-world study habits.</p>`
+            },
+            3: {
+                badge: "Artifact 3 • Expert Data Chart",
+                badgeClass: "bg-purple-100 border-purple-200 text-purple-800",
+                title: "Meta-Analytic Plot on Music Complexity vs Task Accuracy",
+                source: "Music & Science (2022 Dataset)",
+                audience: "Data Analysts, Psychologists, and Quantitative Researchers",
+                genre: "Statistical Meta-Analysis Chart",
+                url: "https://doi.org/10.1177/20592043221134392",
+                preview: `<div class="font-sans text-center space-y-2 py-2">
+                    <div class="text-xs text-slate-300 font-bold">Memory Test Accuracy Across 42 Sound Studies</div>
+                    <div class="flex items-end justify-center space-x-6 h-24 border-b border-slate-700 pb-2">
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 bg-sky-400 rounded-t h-20"></div>
+                            <span class="text-[10px] mt-1 text-slate-300">Quiet (91%)</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 bg-teal-400 rounded-t h-14"></div>
+                            <span class="text-[10px] mt-1 text-slate-300">Lo-Fi (68%)</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 bg-rose-400 rounded-t h-8"></div>
+                            <span class="text-[10px] mt-1 text-slate-300">Lyrical (41%)</span>
+                        </div>
+                    </div>
+                    <div class="text-[11px] text-teal-300 font-mono">Statistical Consistency Metric: I² = 64.2%</div>
+                </div>`,
+                analysis: `<p><strong>Trust & Credibility:</strong> Based on combined statistical data from dozens of independent research trials.</p><p><strong>Audience Adaptation:</strong> Designed for expert readers who know how to read scatter charts and error margins.</p>`
+            },
+            4: {
+                badge: "Artifact 4 • General Audience Visual",
+                badgeClass: "bg-amber-100 border-amber-200 text-amber-800",
+                title: "Can Music Help You Study and Focus? Decision Guide Matrix",
+                source: "National University Educational Portal (2025)",
+                audience: "College Students, Study Groups, and High Schoolers",
+                genre: "Educational Visual Comparison Guide",
+                url: "https://www.nu.edu/blog/can-music-help-you-study-and-focus/",
+                preview: `<div class="font-sans grid grid-cols-3 gap-2 text-center text-xs py-2">
+                    <div class="bg-emerald-950 p-2.5 rounded-xl border border-emerald-800 text-white">
+                        <div class="font-bold text-emerald-300">Quiet Room</div>
+                        <div class="text-[10px] text-slate-300 mt-1">Reading & Writing</div>
+                        <div class="mt-1 text-emerald-400 font-bold">Best Focus</div>
+                    </div>
+                    <div class="bg-amber-950 p-2.5 rounded-xl border border-amber-800 text-white">
+                        <div class="font-bold text-amber-300">Instrumental Beats</div>
+                        <div class="text-[10px] text-slate-300 mt-1">Math & Layouts</div>
+                        <div class="mt-1 text-amber-400 font-bold">Good Focus</div>
+                    </div>
+                    <div class="bg-rose-950 p-2.5 rounded-xl border border-rose-800 text-white">
+                        <div class="font-bold text-rose-300">Songs with Lyrics</div>
+                        <div class="text-[10px] text-slate-300 mt-1">Simple Tasks</div>
+                        <div class="mt-1 text-rose-400 font-bold">High Distraction</div>
+                    </div>
+                </div>`,
+                analysis: `<p><strong>Trust & Credibility:</strong> Clear visual formatting and intuitive color cues (green/yellow/red) create instant clarity.</p><p><strong>Audience Adaptation:</strong> Translates complex science into a 5-second decision chart for busy students.</p>`
+            }
+        };
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Rhetorical Analysis Tab Switcher
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.analysis-tab').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white');
+                btn.classList.add('text-slate-600');
+            });
+
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.add('bg-brand-600', 'text-white');
+            activeBtn.classList.remove('text-slate-600');
+        }
+
+        // Open Artifact Modal
+        function openArtifactModal(id) {
+            const data = artifactsData[id];
+            if (!data) return;
+
+            document.getElementById('modal-badge').textContent = data.badge;
+            document.getElementById('modal-badge').className = `px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wide ${data.badgeClass}`;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-source').textContent = data.source;
+            document.getElementById('modal-audience').textContent = data.audience;
+            document.getElementById('modal-genre').textContent = data.genre;
+            document.getElementById('modal-link').href = data.url;
+            document.getElementById('modal-preview').innerHTML = data.preview;
+            document.getElementById('modal-analysis').innerHTML = data.analysis;
+
+            document.getElementById('artifact-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Artifact Modal
+        function closeArtifactModal() {
+            document.getElementById('artifact-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Simulator Engine Logic
+        function updateSimulator() {
+            const audio = document.getElementById('sim-audio').value;
+            const task = document.getElementById('sim-task').value;
+
+            let interference = 10;
+            let memory = 5;
+            let arousal = 25;
+            let arousalText = "Calm & Quiet";
+            let headline = "";
+            let desc = "";
+            let persona = "";
+
+            if (audio === 'quiet') {
+                interference = 5;
+                memory = 5;
+                arousal = 20;
+                arousalText = "Calm Baseline";
+                headline = "Best Environment for Reading & Writing";
+                desc = "Complete silence gives your brain maximum space to process words and hold information in memory without outside interruptions.";
+                persona = "Intense Reading & Memory Recall";
+            } else if (audio === 'white') {
+                interference = 15;
+                memory = 15;
+                arousal = 50;
+                arousalText = "Steady & Focused";
+                headline = "Good for Masking Noisy Surroundings";
+                desc = "Steady background sounds (like a fan or rain) cover up random outside noises like doors slamming or talking, helping you stay steady.";
+                persona = "Studying in Cafes or Dorms";
+            } else if (audio === 'lofi') {
+                interference = 30;
+                memory = 25;
+                arousal = 65;
+                arousalText = "Energized";
+                headline = "Boosts Energy Without Word Distraction";
+                desc = "Instrumental music keeps you energized and awake without interrupting your reading, as long as there are no sung lyrics.";
+                persona = "Math Problems & Design Tasks";
+            } else if (audio === 'lyrical') {
+                interference = 85;
+                memory = 75;
+                arousal = 90;
+                arousalText = "High Distraction";
+                headline = "High Interruption Risk for Reading";
+                desc = "When you listen to songs with lyrics while reading, your brain tries to process two sets of words at once, causing frequent mistakes.";
+                persona = "Repetitive Tasks (Filing or Formatting)";
+            }
+
+            // Adjust by Task
+            if (task === 'math' && audio !== 'lyrical') {
+                memory = Math.max(5, memory - 5);
+            } else if (task === 'creative' && audio === 'lofi') {
+                headline += " (Great for Creative Flow)";
+            }
+
+            document.getElementById('sim-interference-val').textContent = interference + "%";
+            document.getElementById('sim-interference-bar').style.width = interference + "%";
+
+            document.getElementById('sim-memory-val').textContent = memory + "%";
+            document.getElementById('sim-memory-bar').style.width = memory + "%";
+
+            document.getElementById('sim-arousal-val').textContent = arousalText;
+            document.getElementById('sim-arousal-bar').style.width = arousal + "%";
+
+            document.getElementById('sim-headline').textContent = headline;
+            document.getElementById('sim-description').textContent = desc;
+            document.getElementById('sim-persona').textContent = persona;
+        }
+
+        // Copy APA 7 References to Clipboard
+        function copyReferences() {
+            const referencesText = `Meinhardt-Injac, B., Schlitt, S., & Wetzel, N. (2022). The irrelevant sound effect on serial recall is independent of age and inhibitory control. Auditory Perception & Cognition, 5(1-2), 45–62. https://doi.org/10.1080/25742442.2022.2064692
+
+National University. (2025). Can music help you study and focus? Decision guide matrix. National University Educational Blogs. https://www.nu.edu/blog/can-music-help-you-study-and-focus/
+
+Ramzi, H. (2025, February 10). Lo-fi music for focus: A game-changer or just a trend? Psychology Today. https://www.psychologytoday.com/us/blog/empowered-with-adhd/202502/lo-fi-music-for-focus-just-a-trend-or-a-game-changer
+
+Special Interest Group in Music & Cognition. (2022). Background music and cognitive task performance: A systematic meta-analysis interaction plot. Music & Science, 5, 1–18. https://doi.org/10.1177/20592043221134392`;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = referencesText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const btnText = document.getElementById('copy-btn-text');
+            btnText.textContent = "Copied Citations!";
+            setTimeout(() => {
+                btnText.textContent = "Copy All References";
+            }, 2500);
+        }
+
+        window.onload = function() {
+            updateSimulator();
+        };
+    </script>
+</body>
+</html>
